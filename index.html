@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS Desa-Kota: Mengurai Ketimpangan Peluang Kerja & Game Edukatif</title>
+  <meta name="description" content="Platform edukasi interaktif komprehensif mengenai ketimpangan peluang kerja desa vs kota, akar penyebab, dampak ekonomi-nasional, solusi strategis, serta simulasi game kebijakan dan kuis interaktif.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Audio & Quick Action Controls -->
+  <div class="top-controls">
+    <button id="soundToggleBtn" class="control-pill" title="Nyalakan/Matikan Efek Suara (Audio FX)">
+      <span class="ctrl-icon" id="soundIcon">🔊</span>
+      <span class="ctrl-text" id="soundText">Audio: Aktif</span>
+    </button>
+    <button id="themeToggleBtn" class="control-pill" title="Ganti Mode Tampilan (Gelap / Terang)">
+      <span class="ctrl-icon" id="themeIcon">🌓</span>
+      <span class="ctrl-text">Tema</span>
+    </button>
+  </div>
+
+  <!-- Progress Bar for Reading -->
+  <div id="readProgressBar" class="read-progress-bar"></div>
+
+  <!-- Header Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand">
+        <div class="brand-logo-badge">
+          <span class="logo-circle urban-glow"></span>
+          <span class="logo-connector"></span>
+          <span class="logo-circle rural-glow"></span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">NEXUS DESA-KOTA</span>
+          <span class="brand-sub">Ekuilibrium Peluang Kerja</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#komparasi" class="nav-link">Realitas</a>
+        <a href="#latar-belakang" class="nav-link">Growth Pole</a>
+        <a href="#penyebab" class="nav-link">4 Penyebab</a>
+        <a href="#dampak" class="nav-link">Efek Domino</a>
+        <a href="#solusi" class="nav-link">Peta Solusi</a>
+        <a href="#game-arena" class="nav-link nav-highlight">🎮 Arena Game</a>
+      </nav>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Buka Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <span class="brand-title">Menu Materi</span>
+      <button id="closeDrawerBtn" class="close-drawer">&times;</button>
+    </div>
+    <div class="mobile-drawer-links">
+      <a href="#hero" class="drawer-link">Beranda</a>
+      <a href="#komparasi" class="drawer-link">Realitas Kesenjangan</a>
+      <a href="#latar-belakang" class="drawer-link">Growth Pole Strategy</a>
+      <a href="#penyebab" class="drawer-link">4 Akar Masalah</a>
+      <a href="#dampak" class="drawer-link">Dampak & Efek Domino</a>
+      <a href="#solusi" class="drawer-link">Solusi Transformasi</a>
+      <a href="#game-arena" class="drawer-link drawer-highlight">🎮 Game & Kuis Interaktif</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="ambient-glow glow-1"></div>
+      <div class="ambient-glow glow-2"></div>
+      <div class="ambient-glow glow-3"></div>
+
+      <div class="container hero-container">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Analisis Sosio-Ekonomi & Kebijakan Pembangunan</span>
+        </div>
+
+        <h1 class="hero-title">
+          Mengurai Benang Kusut <br>
+          <span class="gradient-text">Ketimpangan Peluang Kerja</span> <br>
+          Antara Desa dan Kota
+        </h1>
+
+        <p class="hero-desc">
+          Sebuah eksplorasi interaktif tentang bagaimana model pembangunan terpusat <em>(Growth Pole)</em>, kesenjangan infrastruktur, dan mismatch keterampilan menciptakan jurang ekonomi — serta peta jalan konkret menuju keadilan sosial nasional.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#komparasi" class="btn btn-primary">
+            <span>Jelajahi Realitas Materi</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+          </a>
+          <a href="#game-arena" class="btn btn-secondary">
+            <span>Uji Pemahaman di Game</span>
+            <span class="btn-badge">2 Mode</span>
+          </a>
+        </div>
+
+        <!-- Quick Definition Box (Highlighting Structural Gap) -->
+        <div class="definition-card" id="definisi">
+          <div class="def-header">
+            <span class="def-pill">Pengertian Esensial</span>
+            <span class="def-badge-accent">Struktural, Bukan Sekadar Geografis</span>
+          </div>
+          <div class="def-body">
+            <p class="def-text">
+              <strong>Ketimpangan Peluang Kerja Desa vs Kota</strong> adalah 
+              <mark class="hl-cyan">kesenjangan struktural</mark> dalam hal 
+              <em>akses informasi, ketersediaan lapangan kerja formal bernilai tambah tinggi, disparitas tingkat upah</em>, serta 
+              <em>jaminan perlindungan kesejahteraan sosial</em> yang secara signifikan merugikan penduduk perdesaan dibandingkan kawasan perkotaan.
+            </p>
+          </div>
+          <div class="def-indicators">
+            <div class="ind-pill">
+              <span class="ind-icon">⚖️</span>
+              <div><strong>Kesenjangan Upah:</strong> Disparitas pendapatan hingga 2.4x lipat</div>
+            </div>
+            <div class="ind-pill">
+              <span class="ind-icon">🏢</span>
+              <div><strong>Akses Formal:</strong> 72%+ lapangan kerja formal terkonsentrasi di pusat kota</div>
+            </div>
+            <div class="ind-pill">
+              <span class="ind-icon">🛡️</span>
+              <div><strong>Jaminan Sosial:</strong> Tenaga kerja desa didominasi sektor informal minim proteksi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: REALITAS & DUAL-VIEW COMPARISON SLIDER -->
+    <section class="section komparasi-section" id="komparasi">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">01 // Dua Dunia yang Berbeda</div>
+          <h2 class="section-title">Anatomi Ketimpangan: Kontras Lanskap Lapangan Kerja</h2>
+          <p class="section-subtitle">Bandingkan kondisi riil ekosistem ketenagakerjaan antara lanskap perkotaan metropolitan dan lanskap perdesaan agraris secara langsung.</p>
+        </div>
+
+        <!-- Interactive Split Screen Visualizer -->
+        <div class="split-view-container">
+          <div class="split-controls">
+            <button class="split-toggle-btn active" data-view="both">Tampilan Komparasi Seimbang</button>
+            <button class="split-toggle-btn" data-view="urban">Fokus Kawasan Urban (Kota)</button>
+            <button class="split-toggle-btn" data-view="rural">Fokus Kawasan Rural (Desa)</button>
+          </div>
+
+          <div class="dual-columns" id="dualColumns">
+            <!-- Urban Column -->
+            <div class="dual-card urban-side" id="urbanSide">
+              <div class="side-header">
+                <div class="side-tag urban-tag">Kawasan Perkotaan (Urban)</div>
+                <div class="side-status">Pusat Akumulasi Modal & Efisiensi</div>
+              </div>
+              <div class="metric-grid">
+                <div class="metric-item">
+                  <span class="metric-num text-cyan">74.8%</span>
+                  <span class="metric-lbl">Penyerapan Sektor Formal</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-num text-cyan">2.4x</span>
+                  <span class="metric-lbl">Rata-rata Standar Upah (UMR)</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-num text-cyan">92%</span>
+                  <span class="metric-lbl">Ketersediaan Infrastruktur Digital</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-num text-cyan">Tinggi</span>
+                  <span class="metric-lbl">Akses Jaminan Sosial & BPJS</span>
+                </div>
+              </div>
+
+              <div class="characteristics-list">
+                <div class="char-item">
+                  <span class="char-bullet urban-bullet">✓</span>
+                  <div><strong>Ekosistem Industri Lengkap:</strong> Kehadiran pabrik, perbankan, perhotelan, IT, dan korporasi multinasional.</div>
+                </div>
+                <div class="char-item">
+                  <span class="char-bullet urban-bullet">✓</span>
+                  <div><strong>Konektivitas Logistik Tinggi:</strong> Dekat pelabuhan, bandara, jalan tol, dan jaringan serat optik ultra cepat.</div>
+                </div>
+                <div class="char-item">
+                  <span class="char-bullet urban-bullet">✓</span>
+                  <div><strong>Diversifikasi Profesi:</strong> Jenjang karir spesifik dari level operasional hingga keahlian profesional manajerial.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Rural Column -->
+            <div class="dual-card rural-side" id="ruralSide">
+              <div class="side-header">
+                <div class="side-tag rural-tag">Kawasan Perdesaan (Rural)</div>
+                <div class="side-status">Terisolasi dari Rantai Pasok Modern</div>
+              </div>
+              <div class="metric-grid">
+                <div class="metric-item">
+                  <span class="metric-num text-emerald">25.2%</span>
+                  <span class="metric-lbl">Peluang Lapangan Kerja Formal</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-num text-emerald">1.0x</span>
+                  <span class="metric-lbl">Upah Pokok Sering di Bawah UMR</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-num text-emerald">38%</span>
+                  <span class="metric-lbl">Jaringan Internet Stabil & Cepat</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-num text-emerald">Rendah</span>
+                  <span class="metric-lbl">Didominasi Pekerja Rentan Informal</span>
+                </div>
+              </div>
+
+              <div class="characteristics-list">
+                <div class="char-item">
+                  <span class="char-bullet rural-bullet">!</span>
+                  <div><strong>Pertanian Tradisional Subsisten:</strong> Nilai tambah rendah, harga komoditas sangat fluktuatif dipermainkan tengkulak.</div>
+                </div>
+                <div class="char-item">
+                  <span class="char-bullet rural-bullet">!</span>
+                  <div><strong>Biaya Logistik Tinggi:</strong> Ketiadaan jalan mantap membuat produk perdesaan mahal untuk diangkut ke pasar besar.</div>
+                </div>
+                <div class="char-item">
+                  <span class="char-bullet rural-bullet">!</span>
+                  <div><strong>Keterbatasan Pilihan Karir:</strong> Pemuda desa sering kali terpaksa merantau atau menganggur terselubung.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: LATAR BELAKANG & GROWTH POLE STRATEGY -->
+    <section class="section bg-alt" id="latar-belakang">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">02 // Akar Sejarah Pembangunan</div>
+          <h2 class="section-title">Latar Belakang: Jebakan Model "Growth Pole Strategy"</h2>
+          <p class="section-subtitle">Mengapa ketimpangan ini bisa mengkristal selama puluhan tahun? Memahami konsep kutub pertumbuhan dan sentralisasi investasi.</p>
+        </div>
+
+        <div class="growth-pole-grid">
+          <div class="growth-pole-theory">
+            <div class="card card-glow">
+              <div class="theory-badge">Teori Kutub Pertumbuhan (François Perroux)</div>
+              <h3>Paradigma Pertumbuhan yang Terpusat</h3>
+              <p>
+                Sejak awal era industrialisasi modern, para perencana ekonomi menerapkan <strong>Growth Pole Strategy</strong>. Kawasan perkotaan dipilih menjadi episentrum investasi karena menawarkan <em>keuntungan aglomerasi</em>:
+              </p>
+              <ul class="theory-points">
+                <li>
+                  <div class="point-num">01</div>
+                  <div><strong>Infrastruktur Lengkap:</strong> Listrik industri stabil, pelabuhan dagang, dan air bersih siap pakai tanpa investor harus membangun dari nol.</div>
+                </li>
+                <li>
+                  <div class="point-num">02</div>
+                  <div><strong>Kedekatan dengan Pasar Konsumen:</strong> Populasi urban yang padat memberikan pasar domestik langsung dengan daya beli tinggi.</div>
+                </li>
+                <li>
+                  <div class="point-num">03</div>
+                  <div><strong>Efisiensi Logistik & Transaksi:</strong> Menekan ongkos angkut suku cadang dan mempermudah pengawasan rantai pasok.</div>
+                </li>
+              </ul>
+
+              <div class="alert-box-warning">
+                <span class="alert-icon">⚠️</span>
+                <div>
+                  <strong>Dampak Tak Terduga (Backwash Effect):</strong> Asumsi awal bahwa kekayaan kota akan menetes ke desa (<em>trickle-down effect</em>) gagal terwujud. Justru yang terjadi adalah penyerapan habis-habisan (<em>backwash effect</em>)—tenaga kerja produktif dan modal desa justru tersedot lari ke kota besar!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Growth Pole Diagram -->
+          <div class="growth-pole-visual card">
+            <div class="diagram-header">
+              <span class="diagram-tag">Simulasi Alur Investasi Terpusat</span>
+              <span class="diagram-instruksi">Klik node untuk melihat mekanismenya</span>
+            </div>
+
+            <div class="interactive-diagram" id="growthDiagram">
+              <!-- Central Urban Node -->
+              <div class="node node-urban active" id="nodeUrban" onclick="selectDiagramNode('urban')">
+                <div class="node-icon">🏙️</div>
+                <div class="node-title">KOTA METROPOLITAN</div>
+                <div class="node-desc">Pusat Akumulasi Modal & Lapangan Kerja Formal</div>
+                <div class="node-pulse"></div>
+              </div>
+
+              <!-- Connecting flow arrows -->
+              <div class="flow-container">
+                <div class="flow-line line-capital">
+                  <span class="flow-arrow">➡️</span>
+                  <span class="flow-label">Arus Modal, Investor & Talenta Muda</span>
+                </div>
+                <div class="flow-line line-raw">
+                  <span class="flow-arrow">⬅️</span>
+                  <span class="flow-label">Bahan Mentah Murah & Komoditas Tanpa Olahan</span>
+                </div>
+              </div>
+
+              <!-- Rural Satellite Nodes -->
+              <div class="node-rural-wrapper">
+                <div class="node node-rural" id="nodeRural" onclick="selectDiagramNode('rural')">
+                  <div class="node-icon">🌾</div>
+                  <div class="node-title">WILAYAH PERDESAAN</div>
+                  <div class="node-desc">Penyedia Bahan Mentah & Terisolasi Rantai Nilai</div>
+                </div>
+                <div class="node node-rural" id="nodePeriferal" onclick="selectDiagramNode('periferal')">
+                  <div class="node-icon">🚜</div>
+                  <div class="node-title">DAERAH TERTINGGAL / 3T</div>
+                  <div class="node-desc">Minim Infrastruktur, Upah Rendah & Akses Tertutup</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic Info Output Box -->
+            <div class="diagram-info-panel" id="diagramInfoPanel">
+              <div class="info-title" id="diagTitle">Kota Metropolitan (Kutub Pertumbuhan)</div>
+              <p class="info-text" id="diagDesc">Menjadi magnet utama penanaman modal dalam negeri (PMDN) dan asing (PMA). Membuka ribuan lowongan kerja korporasi dan jasa finansial, namun memicu kongesti dan lonjakan biaya hidup.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: 4 PENYEBAB KETIMPANGAN DENGAN KALKULATOR NILAI TAMBAH -->
+    <section class="section" id="penyebab">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">03 // Mengidentifikasi Masalah</div>
+          <h2 class="section-title">4 Faktor Utama Pemicu Ketimpangan Peluang Kerja</h2>
+          <p class="section-subtitle">Empat kendala struktural yang saling berkelindan dan menghalangi terciptanya lapangan kerja berkualitas di perdesaan.</p>
+        </div>
+
+        <div class="causes-grid">
+          <!-- Cause 1 -->
+          <div class="cause-card" data-cause="1">
+            <div class="cause-top">
+              <span class="cause-number">01</span>
+              <span class="cause-icon-badge">🏭</span>
+            </div>
+            <h3 class="cause-title">Konsentrasi Industri di Perkotaan</h3>
+            <p class="cause-body">
+              Pabrik, kawasan industri terpadu, pusat logistik, serta perkantoran sektor jasa modern sengaja dipusatkan di kota besar demi <strong>menekan biaya transaksi</strong> (<em>transaction costs</em>), kemudahan pengurusan regulasi, dan memperpendek jarak dengan pasar konsumen utama.
+            </p>
+            <div class="cause-impact-tag">
+              <span class="tag-title">Efek Langsung:</span>
+              <span class="tag-desc">Investor enggan membuka pabrik di desa karena menganggap biaya distribusi awal terlalu berisiko.</span>
+            </div>
+          </div>
+
+          <!-- Cause 2 -->
+          <div class="cause-card" data-cause="2">
+            <div class="cause-top">
+              <span class="cause-number">02</span>
+              <span class="cause-icon-badge">⚡</span>
+            </div>
+            <h3 class="cause-title">Kesenjangan Infrastruktur Dasar</h3>
+            <p class="cause-body">
+              Ketiadaan atau buruknya kualitas <strong>jaringan logistik, jalur transportasi mantap, pasokan energi/listrik industri, serta koneksi internet broadband</strong> di pelosok desa menciptakan disinsentif besar bagi dunia usaha untuk mendirikan fasilitas operasional di luar wilayah kota.
+            </p>
+            <div class="cause-impact-tag">
+              <span class="tag-title">Efek Langsung:</span>
+              <span class="tag-desc">Ekonomi digital dan gig economy tidak bisa menjangkau pemuda desa karena keterbatasan sinyal & listrik.</span>
+            </div>
+          </div>
+
+          <!-- Cause 3 -->
+          <div class="cause-card" data-cause="3">
+            <div class="cause-top">
+              <span class="cause-number">03</span>
+              <span class="cause-icon-badge">🎓</span>
+            </div>
+            <h3 class="cause-title">Ketidaksesuaian Keterampilan (Mismatch SDM)</h3>
+            <p class="cause-body">
+              Kurikulum lembaga pendidikan serta balai pelatihan vokasi (SMK/BLK) di wilayah desa kerap <strong>ketinggalan zaman dan tidak selaras (*skills mismatch*)</strong> dengan spesifikasi kompetensi yang dicari oleh industri modern seperti otomatisasi, manajemen rantai pasok, dan teknologi terapan.
+            </p>
+            <div class="cause-impact-tag">
+              <span class="tag-title">Efek Langsung:</span>
+              <span class="tag-desc">Lulusan baru di desa tidak mampu bersaing memperebutkan lowongan kerja formal dengan kualifikasi teknis tinggi.</span>
+            </div>
+          </div>
+
+          <!-- Cause 4 -->
+          <div class="cause-card" data-cause="4">
+            <div class="cause-top">
+              <span class="cause-number">04</span>
+              <span class="cause-icon-badge">🌾</span>
+            </div>
+            <h3 class="cause-title">Ketergantungan Sektor Pertanian Tradisional</h3>
+            <p class="cause-body">
+              Perekonomian perdesaan bertumpu kaku pada <strong>pertanian subsisten dengan teknologi konvensional</strong>. Sektor ini memiliki produktivitas serta nilai tambah rendah, sangat rentan terhadap anomali iklim, dan dicirikan oleh rantai tengkulak yang menekan harga jual petani.
+            </p>
+            <div class="cause-impact-tag">
+              <span class="tag-title">Efek Langsung:</span>
+              <span class="tag-desc">Penghasilan fluktuatif dan minimnya diversifikasi lapangan usaha non-tani di pedesaan.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Value-Added Commodity Simulator -->
+        <div class="commodity-simulator card">
+          <div class="sim-header">
+            <div class="sim-title-group">
+              <span class="sim-pill">Simulasi Interaktif Rantai Nilai</span>
+              <h3>Mengapa Petani Desa Miskin Sementara Industri Kota Kaya?</h3>
+              <p>Eksperimen: Lihat bagaimana pengolahan gabah mentah menjadi beras premium berlabel menciptakan lonjakan nilai tambah yang selama ini mengalir ke luar desa.</p>
+            </div>
+          </div>
+
+          <div class="sim-body">
+            <div class="sim-controls-pane">
+              <label for="panenSlider" class="sim-label">
+                <span>Volume Panen Gabah Desa:</span>
+                <strong id="panenValueText" class="text-highlight">5,000 Kg (5 Ton)</strong>
+              </label>
+              <input type="range" id="panenSlider" min="1000" max="20000" step="500" value="5000" class="slider-input">
+
+              <div class="sim-toggles">
+                <label class="toggle-control">
+                  <input type="checkbox" id="hilirisasiToggle">
+                  <span class="toggle-slider"></span>
+                  <span class="toggle-label"><strong>Terapkan Pengolahan Lokal (Hilirisasi Desa)</strong></span>
+                </label>
+              </div>
+              <small class="text-muted">Aktifkan opsi di atas untuk mendirikan fasilitas penggilingan modern & packaging berlabel di desa.</small>
+            </div>
+
+            <div class="sim-results-pane">
+              <div class="result-card" id="skenarioMentah">
+                <div class="res-tag text-warning">Kondisi A: Jual Gabah Mentah ke Tengkulak Kota</div>
+                <div class="res-val" id="valMentah">Rp 30.000.000</div>
+                <div class="res-sub">Harga Gabah: Rp 6.000 / kg</div>
+                <div class="res-bar-wrapper">
+                  <div class="res-bar bar-rural" id="barMentahRural" style="width: 28%">Pendapatan Desa: 28%</div>
+                  <div class="res-bar bar-urban" id="barMentahUrban" style="width: 72%">Margin Industri Kota: 72%</div>
+                </div>
+                <p class="res-note">Desa hanya menjual bahan mentah. Nilai tambah dihisap oleh pabrik pengolahan & supermarket di kota.</p>
+              </div>
+
+              <div class="result-card" id="skenarioOlah">
+                <div class="res-tag text-emerald">Kondisi B: Dikelola Melalui BUMDes & Hilirisasi Lokal</div>
+                <div class="res-val text-emerald" id="valOlah">Rp 75.000.000</div>
+                <div class="res-sub">Hasil Beras Premium: Rp 15.000 / kg (Kualitas Terstandarisasi)</div>
+                <div class="res-bar-wrapper">
+                  <div class="res-bar bar-hilirisasi" id="barOlahRural" style="width: 85%">Nilai Tambah Tinggal di Desa: 85%</div>
+                </div>
+                <p class="res-note">Menciptakan <strong>12 lapangan kerja formal baru</strong> (operator mesin selep modern, quality control, desainer kemasan, dan admin pemasaran e-commerce BUMDes)!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: DAMPAK EKONOMI & NASIONAL (EFEK DOMINO) -->
+    <section class="section bg-alt" id="dampak">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">04 // Rantai Kausalitas</div>
+          <h2 class="section-title">Efek Domino: Dampak Terhadap Ekonomi & Ketahanan Nasional</h2>
+          <p class="section-subtitle">Ketimpangan peluang kerja bukan hanya masalah lokal perdesaan, melainkan bom waktu yang merusak stabilitas ekonomi makro dan integrasi sosial negara.</p>
+        </div>
+
+        <!-- Interactive Domino Simulation -->
+        <div class="domino-interactive card">
+          <div class="domino-header">
+            <div class="domino-legend">
+              <span class="badge-cat badge-economy">Dampak Ekonomi Perdesaan & Perkotaan</span>
+              <span class="badge-cat badge-national">Pengaruh Luas Perekonomian Nasional</span>
+            </div>
+            <div class="domino-action-btn">
+              <button class="btn btn-sm btn-outline" id="triggerDominoBtn" onclick="runDominoEffect()">
+                ▶️ Simulasikan Rantai Reaksi Domino
+              </button>
+            </div>
+          </div>
+
+          <div class="domino-chain" id="dominoChain">
+            <!-- Step 1 -->
+            <div class="domino-node cat-economy" data-step="1">
+              <div class="step-badge">Tahap 1</div>
+              <div class="domino-icon">📉</div>
+              <h4>Pelebaran Jurang Pendapatan</h4>
+              <p>Terjadinya disparitas pendapatan yang tajam antara masyarakat urban sektor formal bergaji tinggi vs masyarakat rural informal berpenghasilan rendah dan tidak menentu.</p>
+            </div>
+
+            <div class="domino-connector"><span>➔</span></div>
+
+            <!-- Step 2 -->
+            <div class="domino-node cat-economy" data-step="2">
+              <div class="step-badge">Tahap 2</div>
+              <div class="domino-icon">⛓️</div>
+              <h4>Kemiskinan Struktural</h4>
+              <p>Penduduk desa terjebak dalam lingkaran setan kemiskinan antargenerasi akibat minimnya posisi tawar tenaga kerja dan ketiadaan alternatif mata pencaharian non-tani.</p>
+            </div>
+
+            <div class="domino-connector"><span>➔</span></div>
+
+            <!-- Step 3 -->
+            <div class="domino-node cat-economy" data-step="3">
+              <div class="step-badge">Tahap 3</div>
+              <div class="domino-icon">🚆</div>
+              <h4>Urbanisasi yang Tak Terkendali</h4>
+              <p>Arus eksodus pemuda desa ke kota besar tanpa bekal keterampilan spesifik memicu ledakan pengangguran terbuka perkotaan dan ekspansi kawasan kumuh (*slum areas*).</p>
+            </div>
+
+            <div class="domino-connector"><span>➔</span></div>
+
+            <!-- Step 4 -->
+            <div class="domino-node cat-national" data-step="4">
+              <div class="step-badge">Tahap 4</div>
+              <div class="domino-icon">🗺️</div>
+              <h4>Disparitas Regional Parah</h4>
+              <p>Memperlebar kesenjangan kesejahteraan regional nasional, seperti konsentrasi pertumbuhan di Pulau Jawa sementara perdesaan luar Jawa tertinggal jauh.</p>
+            </div>
+
+            <div class="domino-connector"><span>➔</span></div>
+
+            <!-- Step 5 -->
+            <div class="domino-node cat-national" data-step="5">
+              <div class="step-badge">Tahap 5</div>
+              <div class="domino-icon">⏳</div>
+              <h4>Inefisiensi Bonus Demografi</h4>
+              <p>Peluang emas bonus demografi nasional terbuang sia-sia karena jutaan angkatan kerja muda di pedesaan menganggur atau bekerja di bawah kapasitas optimal (*underemployment*).</p>
+            </div>
+
+            <div class="domino-connector"><span>➔</span></div>
+
+            <!-- Step 6 -->
+            <div class="domino-node cat-national" data-step="6">
+              <div class="step-badge">Tahap 6</div>
+              <div class="domino-icon">⚡</div>
+              <h4>Kerentanan & Friksi Sosial</h4>
+              <p>Kesenjangan standar kesejahteraan yang mencolok membangkitkan kecemburuan sosial horizontal maupun vertikal, menurunkan kohesi sosial dan stabilitas keamanan nasional.</p>
+            </div>
+          </div>
+
+          <div class="domino-status-bar" id="dominoStatus">
+            <span class="status-indicator"></span>
+            <span class="status-text">Klik salah satu kartu di atas atau klik tombol "Simulasikan Rantai Reaksi Domino" untuk melihat bagaimana krisis merambat.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: SOLUSI STRATEGIS & BLUEPRINT TRANSFORMASI -->
+    <section class="section" id="solusi">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">05 // Jalan Keluar Berkelanjutan</div>
+          <h2 class="section-title">4 Pilar Solusi Strategis: Menutup Jurang Desa-Kota</h2>
+          <p class="section-subtitle">Strategi terpadu untuk merestrukturisasi ekonomi perdesaan dari sekadar penyedia bahan mentah menjadi ekosistem produktif bernilai tambah tinggi.</p>
+        </div>
+
+        <div class="solutions-grid">
+          <!-- Solution 1 -->
+          <div class="sol-card">
+            <div class="sol-header">
+              <div class="sol-icon-box bg-gradient-emerald">🏗️</div>
+              <span class="sol-pillar-num">Pilar 01</span>
+            </div>
+            <h3 class="sol-title">Hilirisasi & Desentralisasi Industri</h3>
+            <p class="sol-desc">
+              Mendorong pembangunan unit-unit industri pengolahan bahan mentah (agroindustri, pengalengan hasil laut, pengeringan rempah) <strong>langsung di dekat sentra produksi perdesaan</strong>.
+            </p>
+            <div class="sol-impact-box">
+              <span class="impact-label">Target Capaian:</span>
+              <ul class="impact-list">
+                <li>Menghasilkan margin nilai tambah 300% di tingkat lokal.</li>
+                <li>Menyerap tenaga kerja formal operator, teknisi, dan manajemen lokal.</li>
+                <li>Mencegah arus urbanisasi angkatan kerja produktif.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Solution 2 -->
+          <div class="sol-card">
+            <div class="sol-header">
+              <div class="sol-icon-box bg-gradient-cyan">📡</div>
+              <span class="sol-pillar-num">Pilar 02</span>
+            </div>
+            <h3 class="sol-title">Akselerasi Konektivitas & Infrastruktur</h3>
+            <p class="sol-desc">
+              Memperluas penetrasi <strong>jaringan internet serat optik (Palapa Ring desa)</strong>, perbaikan jalan logistik primer perdesaan, serta integrasi transportasi publik dan pergudangan dingin (<em>cold storage</em>).
+            </p>
+            <div class="sol-impact-box">
+              <span class="impact-label">Target Capaian:</span>
+              <ul class="impact-list">
+                <li>Memotong ongkos logistik hingga 40% bagi komoditas desa.</li>
+                <li>Membuka peluang kerja jarak jauh (<em>remote work & gig economy</em>) bagi pemuda desa.</li>
+                <li>Menarik minat investor swasta menanamkan modal di luar kota.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Solution 3 -->
+          <div class="sol-card">
+            <div class="sol-header">
+              <div class="sol-icon-box bg-gradient-amber">🎓</div>
+              <span class="sol-pillar-num">Pilar 03</span>
+            </div>
+            <h3 class="sol-title">Pengembangan Vokasi Berbasis Potensi Lokal</h3>
+            <p class="sol-desc">
+              Merombak kurikulum SMK dan Balai Latihan Kerja (BLK) di desa agar <strong>relevan dengan keunggulan komparatif lokal</strong>: mekanisasi pertanian pintar (IoT tani), manajemen ecotourism, dan ekonomi kreatif lokal.
+            </p>
+            <div class="sol-impact-box">
+              <span class="impact-label">Target Capaian:</span>
+              <ul class="impact-list">
+                <li>Mengeliminasi <em>skills mismatch</em> antara lulusan desa dan dunia kerja.</li>
+                <li>Mencetak wirausahawan muda (agripreneur) berdaya saing tinggi.</li>
+                <li>Meningkatkan produktivitas kerja per kapita di pedesaan.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Solution 4 -->
+          <div class="sol-card">
+            <div class="sol-header">
+              <div class="sol-icon-box bg-gradient-violet">🏦</div>
+              <span class="sol-pillar-num">Pilar 04</span>
+            </div>
+            <h3 class="sol-title">Penguatan Ekonomi Desa & Keuangan Inklusif</h3>
+            <p class="sol-desc">
+              Mengoptimalkan peran <strong>Badan Usaha Milik Desa (BUMDes)</strong> sebagai lokomotif ekonomi, memperluas penyaluran Kredit Usaha Rakyat (KUR) mikro tanpa agunan berbelit, dan mendigitalisasi UMKM perdesaan.
+            </p>
+            <div class="sol-impact-box">
+              <span class="impact-label">Target Capaian:</span>
+              <ul class="impact-list">
+                <li>Membebaskan petani dan pelaku usaha desa dari jeratan rentenir.</li>
+                <li>Membawa produk khas desa masuk ke rantai pasok ritel nasional dan ekspor e-commerce.</li>
+                <li>Meningkatkan Pendapatan Asli Desa (PADes) untuk pembangunan berkelanjutan.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Before & After Comparison Matrix -->
+        <div class="comparison-matrix-card card">
+          <div class="matrix-header">
+            <h3>Matriks Transformasi: Sebelum vs Sesudah Implementasi Solusi</h3>
+          </div>
+          <div class="matrix-table-wrapper">
+            <table class="matrix-table">
+              <thead>
+                <tr>
+                  <th>Dimensi Pembangunan</th>
+                  <th class="th-before">Sebelum Intervensi Solusi</th>
+                  <th class="th-after">Sesudah Solusi Diterapkan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Arus Tenaga Kerja</strong></td>
+                  <td class="td-before">Eksodus masif ke kota, desa kehilangan pemuda produktif</td>
+                  <td class="td-after">Tenaga kerja terserap di agro-industri lokal & BUMDes</td>
+                </tr>
+                <tr>
+                  <td><strong>Bentuk Komoditas</strong></td>
+                  <td class="td-before">Bahan mentah tanpa olahan, harga ditekan tengkulak</td>
+                  <td class="td-after">Produk olahan berlabel dengan nilai tambah 300%+</td>
+                </tr>
+                <tr>
+                  <td><strong>Akses Finansial</strong></td>
+                  <td class="td-before">Ketergantungan rentenir, minim perbankan formal</td>
+                  <td class="td-after">Akses KUR murah, fintech legal, dan BUMDes inklusif</td>
+                </tr>
+                <tr>
+                  <td><strong>Kondisi Perkotaan</strong></td>
+                  <td class="td-before">Ledakan pengangguran terbuka & munculnya slum areas</td>
+                  <td class="td-after">Urbanisasi rasional & beban kota metropolitan berkurang</td>
+                </tr>
+                <tr>
+                  <td><strong>Bonus Demografi</strong></td>
+                  <td class="td-before">Terancam jadi beban ekonomi nasional</td>
+                  <td class="td-after">Menjadi mesin pertumbuhan ekonomi nasional berkeadilan</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: ARENA GAME & KUIS INTERAKTIF -->
+    <section class="section game-section bg-alt" id="game-arena">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-kicker">06 // Arena Game & Evaluasi Interaktif</div>
+          <h2 class="section-title">Zona Pengujian Pemahaman: Mainkan & Uji Analisismu</h2>
+          <p class="section-subtitle">Ulangi dan kuasai materi melalui dua mode permainan interaktif: Simulator Kebijakan Perencana Wilayah dan Kuis Tantangan Cepat.</p>
+        </div>
+
+        <!-- Game Mode Selection Tabs -->
+        <div class="game-tabs-wrapper">
+          <button class="game-tab-btn active" id="tabGameSim" onclick="switchGameMode('sim')">
+            <span class="tab-icon">🏛️</span>
+            <div>
+              <div class="tab-title">Game 1: The Regional Planner</div>
+              <div class="tab-subtitle">Simulasi Alokasi Kebijakan (4 Putaran)</div>
+            </div>
+          </button>
+
+          <button class="game-tab-btn" id="tabGameQuiz" onclick="switchGameMode('quiz')">
+            <span class="tab-icon">⚡</span>
+            <div>
+              <div class="tab-title">Game 2: Speedy Quiz Master</div>
+              <div class="tab-subtitle">10 Soal Berwaktu & Evaluasi Otomatis</div>
+            </div>
+          </button>
+        </div>
+
+        <!-- GAME 1 CONTAINER: THE REGIONAL PLANNER SIMULATOR -->
+        <div class="game-mode-panel active" id="panelSimGame">
+          <div class="planner-game card card-glow">
+            <!-- Game Top Header & Round Progress -->
+            <div class="planner-header">
+              <div class="planner-role">
+                <span class="role-badge">PERAN: KEPALA BAPPENAS DAERAH</span>
+                <h3 class="planner-mission-title">Misi: Menyeimbangkan Disparitas Ekonomi Desa-Kota</h3>
+              </div>
+              <div class="planner-stats-bar">
+                <div class="budget-box">
+                  <span class="budget-label">Anggaran APBN:</span>
+                  <span class="budget-val" id="apbnBudget">100 Poin</span>
+                </div>
+                <div class="round-box">
+                  <span class="round-label">Putaran:</span>
+                  <span class="round-val" id="roundIndicator">Putaran 1 / 4</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Regional Health Indicators -->
+            <div class="kpi-dashboard">
+              <div class="kpi-card" id="kpiDisparitas">
+                <div class="kpi-label">Disparitas Upah Desa-Kota</div>
+                <div class="kpi-val text-warning" id="valDisparitas">2.8x Lipat</div>
+                <div class="kpi-meter-bg">
+                  <div class="kpi-meter-fill bg-warning" id="meterDisparitas" style="width: 85%"></div>
+                </div>
+                <div class="kpi-target">Target Seimbang: &lt; 1.3x</div>
+              </div>
+
+              <div class="kpi-card" id="kpiUrbanisasi">
+                <div class="kpi-label">Laju Urbanisasi Liar</div>
+                <div class="kpi-val text-warning" id="valUrbanisasi">68% Kritis</div>
+                <div class="kpi-meter-bg">
+                  <div class="kpi-meter-fill bg-warning" id="meterUrbanisasi" style="width: 68%"></div>
+                </div>
+                <div class="kpi-target">Target Aman: &lt; 20%</div>
+              </div>
+
+              <div class="kpi-card" id="kpiNilaiTambah">
+                <div class="kpi-label">Nilai Tambah Ekonomi Desa</div>
+                <div class="kpi-val text-cyan" id="valNilaiTambah">20% Rendah</div>
+                <div class="kpi-meter-bg">
+                  <div class="kpi-meter-fill bg-cyan" id="meterNilaiTambah" style="width: 20%"></div>
+                </div>
+                <div class="kpi-target">Target Optimal: &gt; 80%</div>
+              </div>
+
+              <div class="kpi-card" id="kpiPengangguran">
+                <div class="kpi-label">Pengangguran Terbuka</div>
+                <div class="kpi-val text-warning" id="valPengangguran">11.4%</div>
+                <div class="kpi-meter-bg">
+                  <div class="kpi-meter-fill bg-warning" id="meterPengangguran" style="width: 60%"></div>
+                </div>
+                <div class="kpi-target">Target Stabil: &lt; 4.0%</div>
+              </div>
+            </div>
+
+            <!-- Crisis Scenario Box -->
+            <div class="crisis-card" id="crisisCard">
+              <div class="crisis-tag" id="crisisTag">SKENARIO PUTARAN 1</div>
+              <h4 class="crisis-title" id="crisisTitle">Krisis Ketenagakerjaan: Ledakan Angkatan Kerja Muda di Pedesaan</h4>
+              <p class="crisis-desc" id="crisisDesc">
+                Ribuan lulusan sekolah perdesaan tidak terserap kerja karena ketiadaan industri dan kurikulum SMK yang usang. Arus migrasi pemuda ke ibu kota melonjak tajam, memicu kepadatan dan tumbuhnya permukiman kumuh di pinggiran kota.
+              </p>
+            </div>
+
+            <!-- Policy Decision Options -->
+            <div class="policy-options-section">
+              <div class="policy-section-title">
+                <span>Pilih 1 Kebijakan Strategis Terbaik untuk Putaran Ini:</span>
+                <span class="policy-budget-note">Setiap kebijakan membutuhkan alokasi APBN yang berbeda</span>
+              </div>
+
+              <div class="policy-grid" id="policyCardsGrid">
+                <!-- Injected via JavaScript -->
+              </div>
+            </div>
+
+            <!-- Round Action & Feedback Footer -->
+            <div class="planner-footer" id="plannerFooter">
+              <div class="planner-message" id="plannerFeedback">
+                Pilih salah satu kebijakan di atas untuk mengeksekusi intervensi pembangunan pada putaran ini.
+              </div>
+              <button class="btn btn-primary" id="btnNextRound" style="display: none;" onclick="advanceRound()">
+                Lanjut ke Putaran Berikutnya ➔
+              </button>
+            </div>
+
+            <!-- Simulation Final Result Modal/View -->
+            <div class="planner-gameover" id="simGameOver" style="display: none;">
+              <div class="gameover-content">
+                <div class="gameover-badge" id="simGradeBadge">PREDIKAT: PERENCANA WILAYAH UTAMA</div>
+                <h3 class="gameover-title" id="simGradeTitle">Reformasi Berhasil: Ekuilibrium Desa-Kota Tercapai!</h3>
+                <p class="gameover-desc" id="simGradeDesc">
+                  Melalui kombinasi hilirisasi dan pemerataan infrastruktur digital, Anda berhasil menekan disparitas upah dan menciptakan ribuan lapangan kerja berkualitas langsung di perdesaan.
+                </p>
+
+                <div class="gameover-stats-summary" id="simFinalMetrics">
+                  <!-- Summary metrics inserted dynamically -->
+                </div>
+
+                <div class="gameover-actions">
+                  <button class="btn btn-primary" onclick="resetSimGame()">
+                    🔄 Mainkan Ulang Simulasi
+                  </button>
+                  <button class="btn btn-secondary" onclick="switchGameMode('quiz')">
+                    ⚡ Lanjut ke Kuis Master Teori
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GAME 2 CONTAINER: SPEEDY QUIZ & CATEGORIZATION CHALLENGE -->
+        <div class="game-mode-panel" id="panelQuizGame">
+          <div class="quiz-game card card-glow">
+            <!-- Quiz Header -->
+            <div class="quiz-header">
+              <div class="quiz-info">
+                <span class="quiz-progress-text" id="quizQuestionCount">Soal 1 dari 10</span>
+                <h3 class="quiz-headline">Kuis Evaluasi Ketimpangan Peluang Kerja</h3>
+              </div>
+              <div class="quiz-live-stats">
+                <div class="live-stat-pill">
+                  <span class="stat-icon">⏱️</span>
+                  <span class="stat-text" id="quizTimerText">20s</span>
+                </div>
+                <div class="live-stat-pill">
+                  <span class="stat-icon">🔥</span>
+                  <span class="stat-text" id="quizStreakText">Streak: 0</span>
+                </div>
+                <div class="live-stat-pill">
+                  <span class="stat-icon">🏆</span>
+                  <span class="stat-text" id="quizScoreText">Skor: 0</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quiz Timer Bar -->
+            <div class="quiz-timer-bar-bg">
+              <div class="quiz-timer-bar-fill" id="quizTimerBar" style="width: 100%;"></div>
+            </div>
+
+            <!-- Active Question Body -->
+            <div class="quiz-body" id="quizActiveBody">
+              <div class="question-category-tag" id="questionCategory">Kategori: Konsep Dasar</div>
+              <div class="question-text" id="questionText">
+                Memuat soal kuis...
+              </div>
+
+              <!-- Options Grid -->
+              <div class="options-list" id="optionsList">
+                <!-- Dynamic Options Buttons Injected via JS -->
+              </div>
+
+              <!-- Instant Explanation Box -->
+              <div class="quiz-explanation-box" id="explanationBox" style="display: none;">
+                <div class="exp-header" id="expHeader">
+                  <span class="exp-icon" id="expIcon">💡</span>
+                  <strong id="expTitle">Ulasan Materi:</strong>
+                </div>
+                <p class="exp-text" id="expText">
+                  Penjelasan mendalam mengenai jawaban yang tepat...
+                </p>
+                <div class="exp-action">
+                  <button class="btn btn-sm btn-primary" id="btnNextQuestion" onclick="nextQuizQuestion()">
+                    Soal Berikutnya ➔
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quiz Final Result Summary -->
+            <div class="quiz-result-view" id="quizResultView" style="display: none;">
+              <div class="quiz-result-header">
+                <div class="result-trophy" id="resultTrophyIcon">🏆</div>
+                <div class="result-title" id="resultTitle">Luar Biasa! Pemahaman Teori Sempurna</div>
+                <div class="result-subtitle" id="resultSubtitle">Anda telah menguasai seluruh konsep disparitas desa-kota dengan sangat mendalam.</div>
+              </div>
+
+              <div class="result-score-circle">
+                <div class="big-score" id="resultFinalScore">100</div>
+                <div class="max-score">/ 100 Poin</div>
+              </div>
+
+              <div class="result-details-grid">
+                <div class="res-detail-item">
+                  <span class="detail-label">Jawaban Benar</span>
+                  <span class="detail-value text-emerald" id="resCorrectCount">10 / 10</span>
+                </div>
+                <div class="res-detail-item">
+                  <span class="detail-label">Akurasi Jawaban</span>
+                  <span class="detail-value text-cyan" id="resAccuracy">100%</span>
+                </div>
+                <div class="res-detail-item">
+                  <span class="detail-label">Streak Terbaik</span>
+                  <span class="detail-value text-amber" id="resMaxStreak">10x</span>
+                </div>
+                <div class="res-detail-item">
+                  <span class="detail-label">Predikat Gelar</span>
+                  <span class="detail-value text-violet" id="resHonorTitle">Pakar Ekonomi Wilayah</span>
+                </div>
+              </div>
+
+              <div class="result-actions">
+                <button class="btn btn-primary" onclick="restartQuiz()">
+                  🔄 Ulangi Kuis
+                </button>
+                <button class="btn btn-outline" onclick="switchGameMode('sim')">
+                  🏛️ Uji Simulasi Kebijakan
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-title">NEXUS DESA-KOTA</div>
+          <p class="footer-desc">Platform pembelajaran interaktif komprehensif mengenai dinamika ketimpangan peluang kerja struktural, model kutub pertumbuhan, dampak makro-ekonomi, dan strategi transformasi keadilan sosial.</p>
+        </div>
+        <div class="footer-nav">
+          <h4>Daftar Pembahasan</h4>
+          <a href="#komparasi">Realitas Disparitas</a>
+          <a href="#latar-belakang">Growth Pole Strategy</a>
+          <a href="#penyebab">4 Faktor Pemicu</a>
+          <a href="#dampak">Rantai Efek Domino</a>
+          <a href="#solusi">4 Pilar Solusi</a>
+          <a href="#game-arena">Simulator & Kuis</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 NEXUS Desa-Kota • Modul Pembelajaran Berbasis Interaktif & Simulasi Gamifikasi</div>
+        <div>Dirancang untuk Pembelajaran Efektif & Pemahaman Bermakna</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+  <script src="games.js"></script>
+</body>
+</html>
